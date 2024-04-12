@@ -34,6 +34,12 @@ Prometheus runs in hte port 9090, which can also be configured in the docker-com
 ![img.png](img.png)
 
 ### Tests
-Only unit test available at this point. It can be considered as a semi integration test, 
+Only unit test available at this point. It can be considered as a partly integration test, 
 since it spins up the app and tests the performance of the api requests.
 Similar tests for rate limiting can be added.
+
+### Move to production
+For moving this app to production, we need helm charts for different environments, which would be an extension of the docker-compose.
+The prometheus can be accompanied by Grafana for better visualization of the metrics of the apis.
+A better automation suite would help us understand the performance bottlenecks and also rate-limiting bottlenecks.
+The app is dependent on a single model and applies a specific logic. The app can be written in such a way to extend the models, and also the functionality of the app itself.
