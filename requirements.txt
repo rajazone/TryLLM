@@ -1,0 +1,4 @@
+flask
+flask-limiter
+prometheus-flask-exporter
+transformers
