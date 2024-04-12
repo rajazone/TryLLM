@@ -1,4 +1,4 @@
-# My Flask Application
+# My LLM API Application
 
 This is a sample application that uses HuggingFace Model to run text moderation for a given text in the api
 
