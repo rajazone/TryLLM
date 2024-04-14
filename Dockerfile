@@ -25,12 +25,20 @@ RUN apt-get update && \
     apt-get install -y libgl1-mesa-glx && \
     rm -rf /var/lib/apt/lists/*
 
-# Install PyTorch and torchvision (replace torch==x.x.x and torchvision==x.x.x with your desired versions)
-RUN pip install torch==1.10.0+cpu torchvision==0.11.1+cpu torchaudio==0.10.0+cpu -f https://download.pytorch.org/whl/torch_stable.html
-
 RUN pip install gunicorn
+
 # Set up a working directory
 WORKDIR /app
+
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+    python3-dev \
+    python3-pip \
+    python3-setuptools \
+    python3-wheel \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN pip install torch torchvision torchaudio
 
 # Copy the cloned repository from the builder stage
 COPY --from=builder /app /app
